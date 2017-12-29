@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.ya.core</groupId>
+		<artifactId>core</artifactId>
+		<version>0.13</version>
+	</parent>
+	<groupId>com.atd.adapter</groupId>
+	<artifactId>adapter</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>application</module>
+		<module>domain</module>
+		<module>infrastructure</module>
+	</modules>
+	<scm>
+		<developerConnection>scm:svn:http://127.0.0.1:83/svn/atd/trunk</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-release</id>
+			<url>http://x1w8056084.iok.la:20270/repository/waterleaks-release/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshot</id>
+			<url>http://x1w8056084.iok.la:20270/repository/waterleaks-snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<properties>
+		<com.ya.core>0.13</com.ya.core>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
+		</plugins>
+
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.ya.core</groupId>
+			<artifactId>tooling</artifactId>
+			<version>${com.ya.core}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ya.core</groupId>
+			<artifactId>model</artifactId>
+			<version>${com.ya.core}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ya.core</groupId>
+			<artifactId>model</artifactId>
+			<version>${com.ya.core}</version>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

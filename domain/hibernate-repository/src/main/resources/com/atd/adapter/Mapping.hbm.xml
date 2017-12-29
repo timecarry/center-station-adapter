@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field" default-lazy="false">
+
+	<!-- WaterUserImpl -->
+	<class name="com.atd.adapter.domain.wateruser.WaterUserImpl" table="WATER_USER_IMPL">
+		<id name="id" type="java.lang.String" column="ID" />
+		<property name="creationDate" type="timestamp" column="CREATION_DATE" />
+		<property name="name" type="java.lang.String" column="NAME" />
+	</class>
+
+<!-- CenterStationImpl -->
+	<class name="com.atd.adapter.domain.centerstation.CenterStationImpl" table="CENTER_STATION_IMPL">
+		<id name="id" type="java.lang.String" column="ID" />
+		<property name="creationDate" type="timestamp" column="CREATION_DATE" />
+		<property name="name" type="java.lang.String" column="NAME" />
+		<property name="ipAddress" type="java.lang.String" column="IP_ADDRESS" />
+		<property name="hostUrl" type="java.lang.String" column="HOST_URL" />
+		<property name="portNumber" type="java.lang.Integer" column="PORT_NUMBER" />
+	</class>
+
+<!-- StationImpl -->
+	<class name="com.atd.adapter.domain.station.StationImpl" table="STATION_IMPL">
+		<id name="id" type="java.lang.String" column="ID" />
+		<property name="creationDate" type="timestamp" column="CREATION_DATE" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="installationLocation" type="java.lang.String" column="INSTALLATION_LOCATION" />
+		<many-to-one name="waterUser" column="WATER_USER_IMPL" unique="false" foreign-key="STATION_IMPL_WATER_USER_IMPL"/>
+	</class>
+
+
+</hibernate-mapping>  
